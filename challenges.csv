@@ -1,0 +1,10 @@
+Name,Category,Description,Max Attempts,State,Type,Connection_Info,Value,Initial,Decay,Minimum,First_Blood_Bonus,Flag_Type,Flag,Hints,Hints_Cost,Challenge_Prerequisites,File_Path
+Standard Challenge 1,Linux,This is the description for Standard Challenge 1.,5,visible,standard,ssh 10.10.11.10,150,,,,,static,standard_flag_3,Hint 1|Hint 2,10|20,,/home/ubuntu/scripts/files/file1.zip
+Standard Challenge 2,Web,This is the description for Standard Challenge 2.,3,visible,standard,,150,,,,,static,standard_flag_2,Hint 3|Hint 4,15|25,Standard Challenge 1,,
+Standard Challenge 3,Forensics,This is the description for Standard Challenge 3.,4,hidden,standard,,200,,,,,static,standard_flag_3,Hint 5|Hint 6,20|30,Standard Challenge 1|Standard Challenge 2,,
+Dynamic Challenge 1,Linux,This is the description for Dynamic Challenge 1.,5,visible,dynamic,,100,100,5,10,,static,dynamic_flag_1,Hint 7|Hint 8,10|20,Standard Challenge 1,,
+Dynamic Challenge 2,Web,This is the description for Dynamic Challenge 2.,3,visible,dynamic,,150,150,10,50,,static,dynamic_flag_2,Hint 9|Hint 10,15|25,Standard Challenge 2,,
+Dynamic Challenge 3,Forensics,This is the description for Dynamic Challenge 3.,2,hidden,dynamic,,200,200,15,100,,static,dynamic_flag_3,Hint 11|Hint 12,20|30,Dynamic Challenge 1|Dynamic Challenge 2,,
+First Blood Challenge 1,Linux,This is the description for First Blood Challenge 1.,5,visible,firstblood,,100,,,,"50|30|20",static,firstblood_flag_1,Hint 13|Hint 14,10|20,Dynamic Challenge 1,,
+First Blood Challenge 2,Web,This is the description for First Blood Challenge 2.,3,visible,firstblood,,150,,,,"40|25|15",static,firstblood_flag_2,Hint 15|Hint 16,15|25,First Blood Challenge 1,,
+First Blood Challenge 3,Forensics,This is the description for First Blood Challenge 3.,4,hidden,firstblood,,200,,,,"60|40|30",static,firstblood_flag_3,Hint 17|Hint 18,20|30,First Blood Challenge 2,,
