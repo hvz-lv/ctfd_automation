@@ -5,8 +5,8 @@ import urllib3
 import time
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # API configuration
-api_url = "https://10.1.69.102/api/v1"
-api_token = "ctfd_548fa19baa2b585dd413cfedaf1e26b2df2cd87297cbf203e8f7abfcc4556c0a"
+api_url = "add_your_ctfd_url_here"
+api_token = "add_your_ctfd_api_token_here"
 headers = {
     "Authorization": f"Bearer {api_token}"
 }
