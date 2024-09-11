@@ -1,0 +1,1 @@
+# CTFd Challenge Automation Script
