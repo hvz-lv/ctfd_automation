@@ -93,18 +93,6 @@ def update_hint(hint_id, prerequisites):
     else:
         print(f"Failed to update hint ID {hint_id}: {response.status_code} - {response.text}")
 
-def resolve_prerequisites(prerequisites, id_mapping):
-    resolved_prereqs = []
-    for prereq in prerequisites:
-        prereq = prereq.strip().lower()  # Clean up the prerequisite
-        if prereq:  # Ensure the prerequisite is not empty
-            prereq_id = id_mapping.get(prereq)
-            if prereq_id:
-                resolved_prereqs.append(prereq_id)
-            else:
-                print(f"Prerequisite '{prereq}-{prereq_id}' not found in ID mapping.")
-    return resolved_prereqs
-
 def main():
     hint_ids, ch_dict = [dict() for _ in range(2)]
     with open(csv_file_path, mode='r') as file:
