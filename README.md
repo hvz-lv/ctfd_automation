@@ -290,8 +290,8 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
-    url = "https://10.1.69.102"  # Your CTFd URL
-    token = "ctfd_548fa19baa2b585dd413cfedaf1e26b2df2cd87297cbf203e8f7abfcc4556c0a"  # Your API token
+    url = "YOUR_CTFd_URL"  # Your CTFd URL
+    token = "YOUR_API_TOKEN"  # Your API token
 
     # Create API Session
     url = url.strip("/")
