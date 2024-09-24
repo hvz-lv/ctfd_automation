@@ -140,7 +140,7 @@ for user in users:
     export_data.append({"username": username, "email": email,"password": password, "config_path": config_path})
 
 # Export to CSV
-with open("mailmerge_databese.csv", 'w', newline='') as csvfile:
+with open("mailmerge_database.csv", 'w', newline='') as csvfile:
     fieldnames = ["username", "email", "password", "config_path"]
     writer = DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
