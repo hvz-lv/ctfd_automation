@@ -1,19 +1,20 @@
+import sys
 import requests
 from csv import DictReader
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-def main():
-    url = "https://localhost"  # Your CTFd URL
-    token = "YOUR_API_TOKEN"  # Your API token
-
+def main(api_token):
+    url = "https://127.0.0.1"  # Your CTFd URL
+    api_token = api_token.strip()
+    
     # Create API Session
-    url = url.strip("/")
+    url = url.rstrip("/")  # Remove trailing slash if present
     s = requests.Session()
-    s.headers.update({"Authorization": f"Token {token}"})
+    s.headers.update({"Authorization": f"Token {api_token}"})
 
     # Read users.csv with username, email, and password
-    users = DictReader(open("/home/ubuntu/ctfd_automation/csv_files/users.csv"))
+    users = DictReader(open("/home/ubuntu/test/ctfd_automatization/users.csv"))
 
     for user in users:
         # Post the user data to create the account
@@ -39,4 +40,5 @@ def main():
             print(f"Failed to create user {user['username']}. Status: {r.status_code}. Response: {r.text}")
 
 if __name__ == "__main__":
-    main()
+    api_token = str(sys.argv[1])
+    main(api_token)

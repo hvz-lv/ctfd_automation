@@ -58,14 +58,15 @@ def add_user_to_team(session, base_url, team_id, user_id):
     else:
         print(f"Failed to add user {user_id} to team {team_id}: {r.status_code} - {r.text}")
 
-def main():
-    url = "https://localhost"  # Your CTFd URL
-    token = "YOUR_API_TOKEN"  # Your API token
+def main(api_token):
+    url = "https://127.0.0.1"  # Your CTFd URL
+    
 
     # Create API session
+    api_token = api_token.strip()
     url = url.strip("/")
     s = requests.Session()
-    s.headers.update({"Authorization": f"Token {token}"})
+    s.headers.update({"Authorization": f"Token {api_token}"})
 
     # Read teams_and_members.csv
     teams = DictReader(open("/home/ubuntu/ctfd_automation/csv_files/team_and_users.csv"))
