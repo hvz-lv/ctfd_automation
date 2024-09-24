@@ -59,7 +59,7 @@ def add_user_to_team(session, base_url, team_id, user_id):
         print(f"Failed to add user {user_id} to team {team_id}: {r.status_code} - {r.text}")
 
 def main():
-    url = "YOUR_CTFd_URL"  # Your CTFd URL
+    url = "https://localhost"  # Your CTFd URL
     token = "YOUR_API_TOKEN"  # Your API token
 
     # Create API session

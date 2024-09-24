@@ -4,7 +4,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
-    url = "YOUR_CTFd_URL"  # Your CTFd URL
+    url = "https://localhost"  # Your CTFd URL
     token = "YOUR_API_TOKEN"  # Your API token
 
     # Create API Session
