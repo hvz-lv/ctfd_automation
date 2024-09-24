@@ -10,7 +10,7 @@ api_token = "add_your_ctfd_api_token_here"
 headers = {
     "Authorization": f"Bearer {api_token}"
 }
-csv_file_path = "csv_files/challenges.csv"  # Update this with your CSV file path
+csv_file_path = "/home/ubuntu/ctfd_automation/csv_files/challenges.csv"  # Update this with your CSV file path
 # Define API endpoints
 file_upload_url = f"{api_url}/files"
 hint_url = f"{api_url}/hints"
