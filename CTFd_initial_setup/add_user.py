@@ -14,7 +14,7 @@ def main(api_token):
     s.headers.update({"Authorization": f"Token {api_token}"})
 
     # Read users.csv with username, email, and password
-    users = DictReader(open("/home/ubuntu/test/ctfd_automatization/users.csv"))
+    users = DictReader(open("/home/ubuntu/ctfd_automation/csv_files/users.csv"))
 
     for user in users:
         # Post the user data to create the account
