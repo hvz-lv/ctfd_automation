@@ -13,7 +13,7 @@ def main():
     s.headers.update({"Authorization": f"Token {token}"})
 
     # Read users.csv with username, email, and password
-    users = DictReader(open("/csv_files/users.csv"))
+    users = DictReader(open("csv_files/users.csv"))
 
     for user in users:
         # Post the user data to create the account
