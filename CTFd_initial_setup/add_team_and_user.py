@@ -68,7 +68,7 @@ def main():
     s.headers.update({"Authorization": f"Token {token}"})
 
     # Read teams_and_members.csv
-    teams = DictReader(open("./csv_files/team_and_users.csv"))
+    teams = DictReader(open("/csv_files/team_and_users.csv"))
 
     for team in teams:
         team_name = team["team"]
