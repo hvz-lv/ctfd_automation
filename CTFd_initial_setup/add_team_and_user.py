@@ -1,6 +1,7 @@
 import requests
 from csv import DictReader
 import urllib3
+import sys
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def create_team(session, base_url, team_name, team_password):
@@ -20,8 +21,10 @@ def create_team(session, base_url, team_name, team_password):
         print(f"Failed to create team '{team_name}': {r.status_code} - {r.text}")
         return None
 
-def create_user(session, base_url, username, email, password):
-    """Create a user and return their ID"""
+def create_user(session, base_url, email, password):
+    """Create a user with username derived from the email"""
+    username = email.split('@')[0]  # Derive username from email
+    
     r = session.post(
         f"{base_url}/api/v1/users?notify=true",  # Notify sends email with credentials
         json={
@@ -58,18 +61,17 @@ def add_user_to_team(session, base_url, team_id, user_id):
     else:
         print(f"Failed to add user {user_id} to team {team_id}: {r.status_code} - {r.text}")
 
-def main(api_token):
+def main():
     url = "https://127.0.0.1"  # Your CTFd URL
-    
+    token = sys.argv[1]  
 
     # Create API session
-    api_token = api_token.strip()
     url = url.strip("/")
     s = requests.Session()
-    s.headers.update({"Authorization": f"Token {api_token}"})
+    s.headers.update({"Authorization": f"Token {token}"})
 
     # Read teams_and_members.csv
-    teams = DictReader(open("/home/ubuntu/ctfd_automation/csv_files/team_and_users.csv"))
+    teams = DictReader(open("team_and_users.csv"))
 
     for team in teams:
         team_name = team["team"]
@@ -83,12 +85,11 @@ def main(api_token):
 
         # Add each member to the team
         for i in range(0, len(members), 3):
-            username = members[i]
-            password = members[i + 1]
             email = members[i + 2]
-
+            password = members[i + 1]
+            
             # Create user
-            user_id = create_user(s, url, username, email, password)
+            user_id = create_user(s, url, email, password)
             if user_id:
                 # Add the user to the team
                 add_user_to_team(s, url, team_id, user_id)

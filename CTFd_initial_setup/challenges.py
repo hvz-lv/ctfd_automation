@@ -9,6 +9,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Define API base URL
 api_url = "https://127.0.0.1/api/v1"
+token = sys.argv[1]
 
 # CSV file path (Update this with your actual file path)
 csv_file_path = "/home/ubuntu/ctfd_automation/csv_files/challenges.csv"
@@ -97,9 +98,8 @@ def update_hint(hint_id, prerequisites, headers):
     else:
         print(f"Failed to update hint ID {hint_id}: {response.status_code} - {response.text}")
 
-def main(api_token):
-    api_token = api_token.strip()
-    headers = {"Authorization": f"Bearer {api_token}"}
+def main(token):
+    headers = {"Authorization": f"Bearer {token}"}
     hint_ids, ch_dict = {}, {}
     
 
@@ -172,5 +172,4 @@ def main(api_token):
             update_challenge(key, {"requirements": {"prerequisites": ch_dict[key][1]}}, headers)
 
 if __name__ == "__main__":
-    api_token = str(sys.argv[1])
-    main(api_token)
+    main()
