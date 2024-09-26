@@ -172,4 +172,4 @@ def main(token):
             update_challenge(key, {"requirements": {"prerequisites": ch_dict[key][1]}}, headers)
 
 if __name__ == "__main__":
-    main()
+    main(token)

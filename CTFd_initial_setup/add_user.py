@@ -4,7 +4,7 @@ from csv import DictReader
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-def main(api_token):
+def main():
     url = "https://127.0.0.1"  # Your CTFd URL
     token = sys.argv[1]
     
@@ -14,7 +14,7 @@ def main(api_token):
     s.headers.update({"Authorization": f"Token {token}"})
 
     # Read users.csv with username, email, and password
-    users = DictReader(open("/home/ubuntu/test/ctfd_automatization/users.csv"))
+    users = DictReader(open("/home/ubuntu/ctfd_automation/csv_files/users.csv"))
 
     for user in users:
         # Post the user data to create the account
